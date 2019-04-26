@@ -31,12 +31,8 @@ public class JavaClassExecuter {
         try{
             Method mainMethod = clazz.getMethod("main",new Class[] {String[].class});
             mainMethod.invoke(null,new String[]{null});
-        }catch (NoSuchMethodException e){
-            e.printStackTrace();
-        }catch (IllegalAccessException e){
-            e.printStackTrace();
-        }catch (InvocationTargetException e){
-            e.getCause().printStackTrace(HackSystem.err);
+        }catch (Throwable e){
+            e.printStackTrace(HackSystem.out);
         }
 
         String result = HackSystem.getBufferString();
